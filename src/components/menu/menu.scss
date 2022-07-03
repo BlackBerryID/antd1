@@ -1,0 +1,67 @@
+@import '../../app/app.scss';
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  padding: 15px;
+  background-color: $BG_BLUE_COLOR;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  &_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      background-color: $MENU_ICON_COLOR;
+    }
+
+    &__title {
+      font-size: 12px;
+      font-weight: 600;
+      color: $MENU_ICON_COLOR;
+    }
+
+    &__icon,
+    &__title {
+      transition: 0.1s;
+    }
+
+    &:hover &__icon {
+      background-color: $MENU_ICON_HOVER_COLOR;
+    }
+
+    &:hover &__title {
+      color: $MENU_ICON_HOVER_COLOR;
+    }
+
+    .dashboard-icon {
+      -webkit-mask-image: url(../../../public/assets/svg/dashboard.svg);
+      mask-image: url(../../../public/assets/svg/dashboard.svg);
+    }
+
+    .users-icon {
+      -webkit-mask-image: url(../../../public/assets/svg/users.svg);
+      mask-image: url(../../../public/assets/svg/users.svg);
+    }
+
+    .settings-icon {
+      -webkit-mask-image: url(../../../public/assets/svg/settings.svg);
+      mask-image: url(../../../public/assets/svg/settings.svg);
+    }
+
+    .pl-icon {
+      -webkit-mask-image: url(../../../public/assets/svg/pl.svg);
+      mask-image: url(../../../public/assets/svg/pl.svg);
+    }
+
+    .vacation-manager-icon {
+      -webkit-mask-image: url(../../../public/assets/svg/vacation-manager.svg);
+      mask-image: url(../../../public/assets/svg/vacation-manager.svg);
+    }
+  }
+}

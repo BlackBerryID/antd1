@@ -1,0 +1,26 @@
+$LARGE_CONTAINER: 1366px;
+
+$BG_BLUE_COLOR: #f5f9fe;
+
+$MENU_ICON_COLOR: #afb6c6;
+$MENU_ICON_HOVER_COLOR: #868c98;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.app {
+  display: flex;
+  max-width: $LARGE_CONTAINER;
+  min-height: 100vh;
+  margin: 0 auto;
+}
