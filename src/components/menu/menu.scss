@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   width: 100px;
-  padding: 15px;
+  padding: 24px 15px;
   background-color: $BG_BLUE_COLOR;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -14,16 +14,27 @@
     flex-direction: column;
     align-items: center;
 
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 384px;
+      margin: 60px 0 168px;
+    }
+
     &__icon {
       width: 20px;
       height: 20px;
-      background-color: $MENU_ICON_COLOR;
+      background-color: $MENU_ICON_GREY;
+      margin-bottom: 8px;
     }
 
     &__title {
       font-size: 12px;
       font-weight: 600;
-      color: $MENU_ICON_COLOR;
+      line-height: 1.2;
+      color: $MENU_ICON_GREY;
     }
 
     &__icon,
@@ -31,12 +42,30 @@
       transition: 0.1s;
     }
 
+    &.active {
+      .menu_button__icon {
+        background-color: $MENU_ICON_BLUE;
+      }
+      .menu_button__title {
+        color: $MENU_ICON_BLUE;
+      }
+    }
+
+    &.active:hover {
+      .menu_button__icon {
+        background-color: $MENU_ICON_HOVER_BLUE;
+      }
+      .menu_button__title {
+        color: $MENU_ICON_HOVER_BLUE;
+      }
+    }
+
     &:hover &__icon {
-      background-color: $MENU_ICON_HOVER_COLOR;
+      background-color: $MENU_ICON_HOVER_GREY;
     }
 
     &:hover &__title {
-      color: $MENU_ICON_HOVER_COLOR;
+      color: $MENU_ICON_HOVER_GREY;
     }
 
     .dashboard-icon {
@@ -62,6 +91,28 @@
     .vacation-manager-icon {
       -webkit-mask-image: url(../../../public/assets/svg/vacation-manager.svg);
       mask-image: url(../../../public/assets/svg/vacation-manager.svg);
+    }
+  }
+
+  &_user-info {
+    &__icon {
+      width: 12px;
+      height: 14.4px;
+      background-color: $MENU_ICON_GREY;
+      -webkit-mask-image: url(../../../public/assets/svg/bell.svg);
+      mask-image: url(../../../public/assets/svg/bell.svg);
+      transition: 0.1s;
+    }
+
+    &__notification {
+      position: relative;
+      width: 12px;
+      height: 14.4px;
+      font-size: 16px;
+    }
+
+    &__notification:hover &__icon {
+      background-color: $MENU_ICON_HOVER_GREY;
     }
   }
 }
