@@ -38,14 +38,13 @@ export const Menu = () => {
       </button>
       <button>
         <Avatar
-          className="menu_user-info__avatar"
           style={{
             display: 'flex',
             alignItems: 'center',
             backgroundColor: MENU_ICON_BLUE,
             width: '34px',
             height: '34px',
-            marginTop: '24px',
+            marginTop: '28px',
             fontWeight: 600,
           }}
         >
