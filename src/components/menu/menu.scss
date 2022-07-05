@@ -26,7 +26,7 @@
     &__icon {
       width: 20px;
       height: 20px;
-      background-color: $MENU_ICON_GREY;
+      background-color: $GREY;
       margin-bottom: 8px;
     }
 
@@ -34,7 +34,7 @@
       font-size: 12px;
       font-weight: 600;
       line-height: 1.2;
-      color: $MENU_ICON_GREY;
+      color: $GREY;
     }
 
     &__icon,
@@ -44,28 +44,28 @@
 
     &.active {
       .menu_button__icon {
-        background-color: $MENU_ICON_BLUE;
+        background-color: $BLUE;
       }
       .menu_button__title {
-        color: $MENU_ICON_BLUE;
+        color: $BLUE;
       }
     }
 
     &.active:hover {
       .menu_button__icon {
-        background-color: $MENU_ICON_HOVER_BLUE;
+        background-color: $BLUE_HOVER;
       }
       .menu_button__title {
-        color: $MENU_ICON_HOVER_BLUE;
+        color: $BLUE_HOVER;
       }
     }
 
     &:hover &__icon {
-      background-color: $MENU_ICON_HOVER_GREY;
+      background-color: $GREY_HOVER;
     }
 
     &:hover &__title {
-      color: $MENU_ICON_HOVER_GREY;
+      color: $GREY_HOVER;
     }
 
     .dashboard-icon {
@@ -100,7 +100,7 @@
       right: 2px;
       width: 12px;
       height: 14.4px;
-      background-color: $MENU_ICON_GREY;
+      background-color: $GREY;
       -webkit-mask-image: url(../../../public/assets/svg/bell.svg);
       mask-image: url(../../../public/assets/svg/bell.svg);
       transition: 0.1s;
@@ -114,7 +114,7 @@
     }
 
     &__notification:hover &__icon {
-      background-color: $MENU_ICON_HOVER_GREY;
+      background-color: $GREY_HOVER;
     }
   }
 }

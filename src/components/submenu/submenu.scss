@@ -1,0 +1,83 @@
+@import '../../app/app.scss';
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 240px;
+  background-color: $BG_BLUE_COLOR;
+
+  &_title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0 13px 24px;
+    color: $GREY;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 24px;
+    margin-bottom: 18px;
+    transition: 0.1s;
+
+    &:hover {
+      color: $BLUE;
+    }
+
+    &__icon {
+      background-color: $GREY;
+      margin-right: 13px;
+      transition: 0.1s;
+    }
+
+    .general {
+      width: 19px;
+      height: 18.2px;
+      -webkit-mask-image: url(../../../public/assets/svg/settings-general.svg);
+      mask-image: url(../../../public/assets/svg/settings-general.svg);
+    }
+
+    .vacation-manager {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      -webkit-mask-image: url(../../../public/assets/svg/settings-vacation-manager.svg);
+      mask-image: url(../../../public/assets/svg/settings-vacation-manager.svg);
+    }
+
+    &.active {
+      color: $BLUE;
+    }
+
+    &.active &__icon {
+      background-color: $BLUE;
+    }
+  }
+
+  &_options {
+    margin-top: -2px;
+  }
+
+  &_option {
+    font-size: 13px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover,
+    &.active {
+      color: $BLUE;
+    }
+
+    &.active {
+      background-color: $BLUE_10_OPACITY;
+    }
+
+    &__text {
+      margin-left: 56px;
+    }
+  }
+}
