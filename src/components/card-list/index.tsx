@@ -1,4 +1,5 @@
 import { CardItem } from '../card-item';
+import { MENU_ICON_BLUE, VIOLET } from '../../app/constants';
 
 import './card-list.scss';
 
@@ -12,6 +13,7 @@ export const CardList = () => {
     {
       name: 'Ben',
       surname: 'Snolly',
+      color: MENU_ICON_BLUE,
     },
     {
       name: 'John',
@@ -26,6 +28,7 @@ export const CardList = () => {
     {
       name: 'Helen',
       surname: 'Malkolm',
+      color: VIOLET,
     },
   ];
 

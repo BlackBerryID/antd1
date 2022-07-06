@@ -13,6 +13,7 @@ type CardData = {
     name: string;
     surname: string;
     avatarURL?: string;
+    color?: string;
   }[];
 };
 

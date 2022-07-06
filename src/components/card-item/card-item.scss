@@ -1,4 +1,62 @@
+@import '../../app/app.scss';
+
 .card {
   width: 304px;
+  height: 173px;
   border-radius: 6px;
+  padding: 0;
+
+  .ant-card-body {
+    padding: 18px 19px;
+  }
+
+  &_title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 17px;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover {
+      color: $BLUE;
+    }
+  }
+
+  &_section {
+    display: flex;
+    align-items: center;
+    margin-bottom: -5px;
+
+    &_title {
+      font-size: 13px;
+      font-weight: 500;
+      width: 91px;
+    }
+
+    .ant-btn-link {
+      font-size: 13px;
+      line-height: 16px;
+      color: $BLUE;
+
+      &:hover > span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &_avatar-group {
+    margin-top: 11px;
+    margin-left: -1px;
+
+    .ant-avatar {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+    }
+  }
 }

@@ -1,28 +1,39 @@
 import { Card, Button, Avatar } from 'antd';
+import { MENU_ICON_BLUE } from '../../app/constants';
 
 import './card-item.scss';
 
 export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
-  const numberAvatarsToShow = users.length > 9 ? 6 : 7;
+  const numberAvatarsToShow = users.length - 6 > 9 ? 6 : 7;
   return (
     <Card className="card">
       <h2 className="card_title">{country}</h2>
-      <div className="holidays">
-        <p className="holidays_title">Holidays</p>
+      <div className="card_section">
+        <div className="card_section_title">Holidays</div>
         <Button type="link">View Holidays</Button>
       </div>
-      <div className="leave-policies">
-        <p className="leave-policies_title">View Leave Policies</p>
-        <Button type="link">View Holidays</Button>
+      <div className="card_section">
+        <div className="card_section_title">Leave Policies</div>
+        <Button type="link">View Leave Policies</Button>
       </div>
-      <Avatar.Group maxCount={numberAvatarsToShow} style={{ backgroundColor: 'green' }}>
+      <Avatar.Group
+        className="card_avatar-group"
+        maxCount={numberAvatarsToShow}
+        maxStyle={{
+          color: MENU_ICON_BLUE,
+          backgroundColor: 'transparent',
+          fontSize: '14px',
+          fontWeight: '600',
+          marginLeft: '-10px',
+        }}
+      >
         {users.map((user) =>
           user.avatarURL ? (
             <Avatar src={user.avatarURL} />
           ) : (
-            <Avatar>
+            <Avatar style={{ backgroundColor: user.color }}>
               {user.name[0].toUpperCase()}
-              {user.name[0].toUpperCase()}
+              {user.surname[0].toUpperCase()}
             </Avatar>
           )
         )}
