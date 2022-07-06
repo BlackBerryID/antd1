@@ -20,6 +20,9 @@ export const SubMenu = () => {
           <div className="submenu_option__text">Locations</div>
         </div>
       </div>
+      <button className="submenu_arrow-back">
+        <div className="submenu_arrow-back__icon"></div>
+      </button>
     </section>
   );
 };

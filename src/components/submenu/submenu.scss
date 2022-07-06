@@ -1,10 +1,12 @@
 @import '../../app/app.scss';
 
 .submenu {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 240px;
+  border-right: 1px solid rgba(46, 91, 255, 0.1);
   background-color: $BG_BLUE_COLOR;
 
   &_title {
@@ -78,6 +80,27 @@
 
     &__text {
       margin-left: 56px;
+    }
+  }
+  &_arrow-back {
+    position: absolute;
+    top: 78px;
+    right: -12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #dfe5f9;
+    border-radius: 50%;
+    background-color: #fff;
+
+    &__icon {
+      width: 12px;
+      height: 10px;
+      background-color: $GREY_HOVER;
+      -webkit-mask-image: url(../../../public/assets/svg/arrow-back.svg);
+      mask-image: url(../../../public/assets/svg/arrow-back.svg);
     }
   }
 }
