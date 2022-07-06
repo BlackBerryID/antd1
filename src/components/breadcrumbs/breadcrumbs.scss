@@ -1,21 +1,27 @@
 @import '../../app/app.scss';
 
 .breadcrumb {
-  display: flex;
-  justify-content: space-between;
-  width: 900px;
-
   &_item {
     display: inline-flex;
-    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: -0.1px;
+    color: $BLUE;
+    margin: 5px 1px 0;
+  }
 
-    &__icon {
+  &_root-item {
+    margin-top: 4px;
+
+    &::before {
+      content: '';
+      display: block;
       width: 14px;
-      height: 13.2px;
-      background-color: $BLUE_HOVER;
-      -webkit-mask-image: url(../../../public/assets/svg/settings.svg);
-      mask-image: url(../../../public/assets/svg/settings.svg);
-      mask-size: contain;
+      height: 14px;
+      margin-right: 5px;
+      background-image: url(../../../public/assets/svg/settings.svg);
+      background-size: contain;
     }
   }
 }

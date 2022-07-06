@@ -8,7 +8,9 @@ $BLUE: #00a0ec;
 $BLUE_HOVER: #0683dd;
 $BLUE_10_OPACITY: #eef7fc;
 
-* {
+*,
+::after,
+::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
