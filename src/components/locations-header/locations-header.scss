@@ -1,0 +1,16 @@
+.locations-header_info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 7px;
+  }
+
+  &__text {
+    line-height: 18px;
+  }
+}
