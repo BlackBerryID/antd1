@@ -1,16 +1,38 @@
-.locations-header_info {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3px;
+@import '../../app/app.scss';
 
-  &__title {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 120%;
-    margin-bottom: 7px;
+.locations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+
+    &__title {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 120%;
+      margin-bottom: 7px;
+    }
+
+    &__text {
+      line-height: 18px;
+    }
   }
 
-  &__text {
-    line-height: 18px;
+  &_button {
+    width: 152px;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: $BLUE;
+    transition: 0.1s;
+
+    &:hover {
+      background-color: $BLUE_HOVER;
+    }
   }
 }
