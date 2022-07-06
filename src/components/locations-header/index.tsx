@@ -11,9 +11,7 @@ export const LocationsHeader = () => {
           Create new users or update the existng users. You can then set their permissons here too.{' '}
         </div>
       </div>
-      <Button className="locations-header_button" type="primary">
-        Create Location
-      </Button>
+      <Button type="primary">Create Location</Button>
     </div>
   );
 };

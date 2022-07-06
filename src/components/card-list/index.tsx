@@ -1,9 +1,13 @@
+import { CardItem } from '../card-item';
+
+import './card-list.scss';
+
 export const CardList = () => {
   const usersData = [
     {
       name: 'Mike',
       surname: 'Spencer',
-      avatarURL: '../../../public/assets/png/avatars/avatar-Mike-Spencer.png',
+      avatarURL: './assets/png/avatars/avatar-Mike-Spencer.svg',
     },
     {
       name: 'Ben',
@@ -12,12 +16,12 @@ export const CardList = () => {
     {
       name: 'John',
       surname: 'Travelsy',
-      avatarURL: '../../../public/assets/png/avatars/avatar-John-Travelsy.png',
+      avatarURL: './assets/png/avatars/avatar-John-Travelsy.svg',
     },
     {
       name: 'Nisha',
       surname: 'Aricson',
-      avatarURL: '../../../public/assets/png/avatars/avatar-Nisha-Aricson.png',
+      avatarURL: './assets/png/avatars/avatar-Nisha-Aricson.svg',
     },
     {
       name: 'Helen',
@@ -41,7 +45,7 @@ export const CardList = () => {
     return arr;
   };
 
-  const cardsData = [
+  const cardsData: CardData[] = [
     {
       country: 'Australia',
       users: [
@@ -72,4 +76,12 @@ export const CardList = () => {
       ],
     },
   ];
+
+  return (
+    <section className="card-list">
+      {cardsData.map((cardData) => (
+        <CardItem cardData={cardData} />
+      ))}
+    </section>
+  );
 };
