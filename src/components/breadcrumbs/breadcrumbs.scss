@@ -1,0 +1,21 @@
+@import '../../app/app.scss';
+
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+
+  &_item {
+    display: inline-flex;
+    align-items: center;
+
+    &__icon {
+      width: 14px;
+      height: 13.2px;
+      background-color: $BLUE_HOVER;
+      -webkit-mask-image: url(../../../public/assets/svg/settings.svg);
+      mask-image: url(../../../public/assets/svg/settings.svg);
+      mask-size: contain;
+    }
+  }
+}

@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-shrink: 0;
   width: 240px;
   border-right: 1px solid rgba(46, 91, 255, 0.1);
   background-color: $BG_BLUE_COLOR;
