@@ -3,8 +3,12 @@
 .card {
   width: 304px;
   height: 173px;
-  border-radius: 6px;
   padding: 0;
+  border: 0.7px solid;
+  border-radius: 6px;
+  border-image-source: linear-gradient(0deg, rgba(175, 182, 198, 0.4), rgba(175, 182, 198, 0.4)),
+    linear-gradient(0deg, #ffffff, #ffffff);
+  box-shadow: 2px 2px 15px 0px #002caf0d;
 
   .ant-card-body {
     padding: 18px 19px;
@@ -18,6 +22,20 @@
     cursor: pointer;
     transition: 0.1s;
     color: $BLACK;
+
+    .card.default &::after {
+      content: 'default';
+      width: 72px;
+      height: 20px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+      padding: 2px 14px;
+      margin-left: 9px;
+      color: #fff;
+      background-color: $BLUE;
+    }
 
     &:hover {
       color: $BLUE;

@@ -8,7 +8,7 @@ export const CardList = () => {
     {
       name: 'Mike',
       surname: 'Spencer',
-      avatarURL: './assets/png/avatars/avatar-Mike-Spencer.svg',
+      avatarURL: './assets/svg/avatars/avatar-Mike-Spencer.svg',
     },
     {
       name: 'Ben',
@@ -18,17 +18,37 @@ export const CardList = () => {
     {
       name: 'John',
       surname: 'Travelsy',
-      avatarURL: './assets/png/avatars/avatar-John-Travelsy.svg',
+      avatarURL: './assets/svg/avatars/avatar-John-Travelsy.svg',
     },
     {
       name: 'Nisha',
       surname: 'Aricson',
-      avatarURL: './assets/png/avatars/avatar-Nisha-Aricson.svg',
+      avatarURL: './assets/svg/avatars/avatar-Nisha-Aricson.svg',
     },
     {
       name: 'Helen',
       surname: 'Malkolm',
       color: VIOLET,
+    },
+    {
+      name: 'Jane',
+      surname: 'Salivan',
+      avatarURL: './assets/svg/avatars/avatar-Jane-Salivan.svg',
+    },
+    {
+      name: 'Kris',
+      surname: 'Manson',
+      avatarURL: './assets/svg/avatars/avatar-Kris-Manson.svg',
+    },
+    {
+      name: 'Luiza',
+      surname: 'Shelbalm',
+      avatarURL: './assets/svg/avatars/avatar-Luiza-Shelbalm.svg',
+    },
+    {
+      name: 'Sam',
+      surname: 'Tumb',
+      avatarURL: './assets/svg/avatars/avatar-Sam-Tumb.svg',
     },
   ];
 
@@ -59,7 +79,9 @@ export const CardList = () => {
         usersData[3],
         usersData[4],
         usersData[2],
-        ...addRandomUsers(6),
+        usersData[5],
+        usersData[6],
+        ...addRandomUsers(4),
       ],
     },
     {
@@ -75,8 +97,15 @@ export const CardList = () => {
         usersData[0],
         usersData[3],
         usersData[4],
-        ...addRandomUsers(76),
+        usersData[7],
+        usersData[6],
+        usersData[8],
+        ...addRandomUsers(73),
       ],
+    },
+    {
+      country: 'Canada',
+      users: [usersData[1], usersData[3]],
     },
   ];
 

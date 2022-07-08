@@ -6,7 +6,7 @@ import './card-item.scss';
 export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
   const numberAvatarsToShow = users.length - 6 > 9 ? 6 : 7;
   return (
-    <Card className="card">
+    <Card className="card default">
       <h2 className="card_title">{country}</h2>
       <div className="card_section">
         <div className="card_section_title">Holidays</div>
