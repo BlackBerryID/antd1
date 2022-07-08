@@ -9,12 +9,31 @@
   border-right: 1px solid rgba(46, 91, 255, 0.1);
   background-color: $BG_BLUE_COLOR;
   color: $BLACK;
+  transition: 0.5s;
 
   &_title {
     font-size: 16px;
     font-weight: 600;
     margin: 20px 0 13px 24px;
     color: $GREY;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &.active &_title {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.active &_item {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.active &_options {
+    visibility: visible;
+    opacity: 1;
   }
 
   &_item {
@@ -24,7 +43,9 @@
     font-weight: 500;
     margin-left: 24px;
     margin-bottom: 18px;
-    transition: 0.1s;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s, color 0.1s;
 
     &:hover {
       color: $BLUE;
@@ -62,6 +83,9 @@
 
   &_options {
     margin-top: -2px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s, color 0.1s;
   }
 
   &_option {
