@@ -77,4 +77,41 @@
       letter-spacing: -0.1px;
     }
   }
+
+  &_dropdown {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+
+    &__icon {
+      &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: 0.1s;
+
+        &:hover,
+        &.active {
+          background-color: $BLUE_10_OPACITY;
+        }
+      }
+
+      width: 10px;
+      height: 15px;
+      margin: 2px 1px 0 0;
+      background-color: $GREY;
+      -webkit-mask-image: url(../../../public/assets/svg/dots.svg);
+      mask-image: url(../../../public/assets/svg/dots.svg);
+      transition: 0.1s;
+    }
+
+    &:hover &__icon,
+    &.active &__icon {
+      background-color: $BLUE;
+    }
+  }
 }
