@@ -1,8 +1,8 @@
 import { Card, Button, Avatar, Dropdown, Menu } from 'antd';
 import { useEffect, useState } from 'react';
 import { MENU_ICON_BLUE, SUBMENU_ANIMATION_TIME, OPEN_STATE_WIDTH } from '../../app/constants';
-import { useAppSelector } from '../../hooks/storeHooks';
-import { calcNumberAvatarsToShow } from '../../utils/calcNumberAvatarsToShow';
+import { useAppSelector } from '../../hooks/store-hooks';
+import { calcNumberAvatarsToShow } from '../../utils/calc-number-avatars-to-show';
 
 import './card-item.scss';
 

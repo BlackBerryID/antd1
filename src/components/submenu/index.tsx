@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
-import { toggleSubmenuState, toggleSubmenuWidth } from '../../store/slices/submenuSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
+import { toggleSubmenuState, toggleSubmenuWidth } from '../../store/slices/submenu-slice';
 import { SUBMENU_ANIMATION_TIME } from '../../app/constants';
 import './submenu.scss';
 

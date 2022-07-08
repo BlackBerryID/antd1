@@ -7,6 +7,13 @@ type MenuButtonProps = {
 
 /* Cards */
 
+type UsersData = {
+  name: string;
+  surname: string;
+  avatarURL?: string;
+  color?: string;
+}[];
+
 type CardData = {
   country: string;
   users: {
