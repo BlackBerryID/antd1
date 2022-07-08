@@ -82,8 +82,8 @@ export const CardList = () => {
 
   return (
     <section className="card-list">
-      {cardsData.map((cardData) => (
-        <CardItem cardData={cardData} />
+      {cardsData.map((cardData, index) => (
+        <CardItem cardData={cardData} key={index} />
       ))}
     </section>
   );

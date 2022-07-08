@@ -27,11 +27,11 @@ export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
           marginLeft: '-10px',
         }}
       >
-        {users.map((user) =>
+        {users.map((user, index) =>
           user.avatarURL ? (
-            <Avatar src={user.avatarURL} />
+            <Avatar src={user.avatarURL} key={index} />
           ) : (
-            <Avatar style={{ backgroundColor: user.color }}>
+            <Avatar style={{ backgroundColor: user.color }} key={index}>
               {user.name[0].toUpperCase()}
               {user.surname[0].toUpperCase()}
             </Avatar>
