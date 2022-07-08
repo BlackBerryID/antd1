@@ -24,7 +24,7 @@ export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
           backgroundColor: 'transparent',
           fontSize: '14px',
           fontWeight: '600',
-          marginLeft: '-10px',
+          marginLeft: '-8px',
         }}
       >
         {users.map((user, index) =>

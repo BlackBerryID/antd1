@@ -1,3 +1,4 @@
+import { Row, Col } from 'antd';
 import { CardItem } from '../card-item';
 import { MENU_ICON_BLUE, VIOLET } from '../../app/constants';
 
@@ -109,11 +110,18 @@ export const CardList = () => {
     },
   ];
 
+  const cols: JSX.Element[] = [];
+  cardsData.forEach((cardData, index) => {
+    cols.push(
+      <Col key={index} span={8}>
+        <CardItem cardData={cardData} />
+      </Col>
+    );
+  });
+
   return (
     <section className="card-list">
-      {cardsData.map((cardData, index) => (
-        <CardItem cardData={cardData} key={index} />
-      ))}
+      <Row gutter={[16, 16]}>{cols}</Row>
     </section>
   );
 };

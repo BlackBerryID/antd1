@@ -1,13 +1,11 @@
 @import '../../app/app.scss';
 
 .card {
-  width: 304px;
   height: 173px;
   padding: 0;
-  border: 0.7px solid;
-  border-radius: 6px;
-  border-image-source: linear-gradient(0deg, rgba(175, 182, 198, 0.4), rgba(175, 182, 198, 0.4)),
+  border: 0.7px solid linear-gradient(0deg, rgba(175, 182, 198, 0.4), rgba(175, 182, 198, 0.4)),
     linear-gradient(0deg, #ffffff, #ffffff);
+  border-radius: 6px;
   box-shadow: 2px 2px 15px 0px #002caf0d;
 
   .ant-card-body {
