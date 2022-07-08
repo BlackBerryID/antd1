@@ -4,20 +4,33 @@ import { MENU_ICON_BLUE } from '../../app/constants';
 
 import './card-item.scss';
 
+const menu = (
+  <Menu
+    items={[
+      {
+        label: <div className="card_dropdown-item__label">Edit</div>,
+        key: '1',
+        icon: <div className="card_dropdown-item__icon edit"></div>,
+      },
+      {
+        label: <div className="card_dropdown-item__label">Set&nbsp;as&nbsp;Default</div>,
+        key: '2',
+        icon: <div className="card_dropdown-item__icon star"></div>,
+      },
+      {
+        label: <div className="card_dropdown-item__label">Delete</div>,
+        key: '3',
+        icon: <div className="card_dropdown-item__icon delete"></div>,
+      },
+    ]}
+    style={{ padding: '8px 4px 3px', borderRadius: '6px' }}
+  />
+);
+
 export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
   const [isDropdownActive, setIsDropdownActive] = useState<boolean>(false);
 
   const numberAvatarsToShow = users.length - 6 > 9 ? 6 : 7;
-  const menu = (
-    <Menu
-      items={[
-        {
-          label: 'Submit and continue',
-          key: '1',
-        },
-      ]}
-    />
-  );
   return (
     <Card className="card default">
       <h2 className="card_title">{country}</h2>
@@ -25,6 +38,7 @@ export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
         className={`card_dropdown ${isDropdownActive ? 'active' : ''}`}
         overlay={menu}
         trigger={['click']}
+        placement="bottomRight"
         onVisibleChange={(visible) => setIsDropdownActive(visible)}
       >
         <div className="card_dropdown__icon-wrapper">

@@ -113,5 +113,37 @@
     &.active &__icon {
       background-color: $BLUE;
     }
+
+    &-item {
+      &__label {
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 7px;
+      }
+
+      &__icon {
+        width: 14px;
+        height: 14px;
+        background-color: $BLACK_80_OPACITY;
+        transition: 0.1s;
+        margin-bottom: 7px;
+
+        &.edit {
+          -webkit-mask-image: url(../../../public/assets/svg/edit.svg);
+          mask-image: url(../../../public/assets/svg/edit.svg);
+        }
+
+        &.star {
+          -webkit-mask-image: url(../../../public/assets/svg/star.svg);
+          mask-image: url(../../../public/assets/svg/star.svg);
+        }
+
+        &.delete {
+          height: 16px;
+          -webkit-mask-image: url(../../../public/assets/svg/delete.svg);
+          mask-image: url(../../../public/assets/svg/delete.svg);
+        }
+      }
+    }
   }
 }
