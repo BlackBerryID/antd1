@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const CLOSE_STATE_WIDTH = '12px';
-const OPEN_STATE_WIDTH = '240px';
+import { OPEN_STATE_WIDTH, CLOSE_STATE_WIDTH } from '../../app/constants';
 
 export const submenuSlice = createSlice({
   name: 'submenu',

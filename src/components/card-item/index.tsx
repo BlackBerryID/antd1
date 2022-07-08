@@ -1,6 +1,8 @@
 import { Card, Button, Avatar, Dropdown, Menu } from 'antd';
-import { useState } from 'react';
-import { MENU_ICON_BLUE } from '../../app/constants';
+import { useEffect, useState } from 'react';
+import { MENU_ICON_BLUE, SUBMENU_ANIMATION_TIME, OPEN_STATE_WIDTH } from '../../app/constants';
+import { useAppSelector } from '../../hooks/storeHooks';
+import { calcNumberAvatarsToShow } from '../../utils/calcNumberAvatarsToShow';
 
 import './card-item.scss';
 
@@ -28,9 +30,21 @@ const menu = (
 );
 
 export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
+  const { submenuWidth } = useAppSelector((state) => state.submenu);
   const [isDropdownActive, setIsDropdownActive] = useState<boolean>(false);
+  const [numberAvatarsToShow, setNumberAvatarsToShow] = useState<number>(3);
 
-  const numberAvatarsToShow = users.length - 6 > 9 ? 6 : 7;
+  useEffect(() => {
+    const isSubmenuOpen = submenuWidth === OPEN_STATE_WIDTH ? true : false;
+    if (isSubmenuOpen) {
+      setNumberAvatarsToShow(calcNumberAvatarsToShow(users.length, isSubmenuOpen));
+    } else {
+      setTimeout(() => {
+        setNumberAvatarsToShow(calcNumberAvatarsToShow(users.length, isSubmenuOpen));
+      }, SUBMENU_ANIMATION_TIME);
+    }
+  }, [submenuWidth]);
+
   return (
     <Card className="card default">
       <h2 className="card_title">{country}</h2>
