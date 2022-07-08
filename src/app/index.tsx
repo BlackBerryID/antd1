@@ -1,5 +1,5 @@
 import { Menu } from '../components/menu';
-import { SubMenu } from '../components/submenu';
+import { Submenu } from '../components/submenu';
 import { Settings } from '../pages/settings';
 
 import './app.scss';
@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <div className="app">
       <Menu />
-      <SubMenu />
+      <Submenu />
       <Settings />
     </div>
   );

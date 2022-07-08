@@ -1,24 +1,23 @@
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
+import { toggleSubmenuState, toggleSubmenuWidth } from '../../store/slices/submenuSlice';
+import { SUBMENU_ANIMATION_TIME } from '../../app/constants';
 import './submenu.scss';
 
-const CLOSE_STATE_WIDTH = '12px';
-const OPEN_STATE_WIDTH = '240px';
+export const Submenu = () => {
+  const { active, submenuWidth } = useAppSelector((state) => state.submenu);
+  const dispatch = useAppDispatch();
 
-export const SubMenu = () => {
-  const [active, setActive] = useState<boolean>(true);
-  const [submenuWidth, setSubmenuWidth] = useState(OPEN_STATE_WIDTH);
-
-  const toggleSubMenu = () => {
+  const toggleSubmenu = () => {
     if (active) {
-      setActive(false);
+      dispatch(toggleSubmenuState());
       setTimeout(() => {
-        setSubmenuWidth(CLOSE_STATE_WIDTH);
-      }, 500);
+        dispatch(toggleSubmenuWidth());
+      }, SUBMENU_ANIMATION_TIME);
     } else {
-      setSubmenuWidth(OPEN_STATE_WIDTH);
+      dispatch(toggleSubmenuWidth());
       setTimeout(() => {
-        setActive(true);
-      }, 500);
+        dispatch(toggleSubmenuState());
+      }, SUBMENU_ANIMATION_TIME);
     }
   };
 
@@ -41,7 +40,7 @@ export const SubMenu = () => {
           <div className="submenu_option__text">Locations</div>
         </div>
       </div>
-      <button className="submenu_arrow-back" onClick={() => toggleSubMenu()}>
+      <button className="submenu_arrow-back" onClick={() => toggleSubmenu()}>
         <div
           className="submenu_arrow-back__icon"
           style={{ transform: `rotate(${active ? 0 : 180}deg)` }}
