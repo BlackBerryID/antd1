@@ -1,6 +1,12 @@
 @import '../../app/app.scss';
 
 .confirmation-popup {
+  .ant-modal-body {
+    line-height: 150%;
+    color: $BLACK_80_OPACITY;
+    padding: 24px 40px;
+  }
+
   .ant-modal-content,
   .ant-modal-header {
     border-radius: 12px;
@@ -21,5 +27,21 @@
     background-color: $LIGHT_GREY_10_OPACITY;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  &_text {
+    position: relative;
+    margin: 12px 0 0 28px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      width: 17px;
+      height: 15px;
+      background-color: #f24445;
+      -webkit-mask-image: url(../../../public/assets/svg/warning.svg);
+      mask-image: url(../../../public/assets/svg/warning.svg);
+    }
   }
 }

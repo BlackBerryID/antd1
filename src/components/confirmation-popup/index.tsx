@@ -13,6 +13,12 @@ export const ConfirmationPopup = () => {
       footer={null}
       closeIcon={<Icon component={closeIcon} />}
       width={460}
-    ></Modal>
+    >
+      <div className="confirmation-popup_title">Are you sure want to delete “USA” Location? </div>
+      <div className="confirmation-popup_text">
+        Deleting a location might impact the users' configuration and leave information (e.g. the
+        initial brought forward days).
+      </div>
+    </Modal>
   );
 };
