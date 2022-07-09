@@ -1,8 +1,5 @@
 import { ButtonProps } from 'antd';
 import { RED } from '../../../../app/constants';
-import { useAppDispatch } from '../../../../hooks/store-hooks';
-import { closePopup } from '../../../../store/slices/popup-slice';
-import { deleteCard } from '../../../../store/slices/card-list-slice';
 
 import './confirmation.scss';
 

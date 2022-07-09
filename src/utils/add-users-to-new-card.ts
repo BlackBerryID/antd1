@@ -7,7 +7,7 @@ export const addUsersToNewCard = (
   } else {
     return usersData.filter((userData) => {
       let flag = false;
-      formOutput.users!.forEach((user) => {
+      (formOutput.users as string[]).forEach((user) => {
         const [name, surname] = user.split(' ');
         if (name === userData.name && surname === userData.surname) flag = true;
       });
