@@ -1,4 +1,4 @@
-import { Form } from 'antd';
+import { Form, Checkbox } from 'antd';
 import { useState } from 'react';
 import { FloatInput } from '../float-input';
 
@@ -6,9 +6,24 @@ import './create.scss';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
+
+  const onFinish = (values: number) => {
+    console.log(values);
+  };
+
+  const workweekOptions = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
   return (
-    <Form>
-      <Form.Item>
+    <Form onFinish={onFinish}>
+      <Form.Item name="location-name">
         <FloatInput
           customClassName="popup-input_location-name"
           placeholder="Location Name"
@@ -17,6 +32,12 @@ export const Create = () => {
           onChange={(e) => setLocationName(e.target.value)}
         />
       </Form.Item>
+      <div className="popup-input_workweek">
+        <div className="popup-input_workweek__title">Workweek</div>
+        <Form.Item name="workweek">
+          <Checkbox.Group options={workweekOptions} />
+        </Form.Item>
+      </div>
     </Form>
   );
 };
