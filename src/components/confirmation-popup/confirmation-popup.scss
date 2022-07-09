@@ -1,0 +1,25 @@
+@import '../../app/app.scss';
+
+.confirmation-popup {
+  .ant-modal-content,
+  .ant-modal-header {
+    border-radius: 12px;
+  }
+
+  .ant-modal-title {
+    color: $BLACK;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 120%;
+  }
+
+  .ant-modal-close {
+    // background-color: green;
+  }
+
+  .ant-modal-header {
+    background-color: $LIGHT_GREY_10_OPACITY;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
