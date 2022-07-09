@@ -28,3 +28,12 @@ type CardItemProps = {
   cardData: CardData;
   id: number;
 };
+
+/* Popup */
+
+type PopupMode = 'create' | 'confirm';
+
+type PopupSliceInitialState = {
+  isOpen: boolean;
+  mode: PopupMode;
+};

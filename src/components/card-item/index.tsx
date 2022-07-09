@@ -4,7 +4,7 @@ import { MENU_ICON_BLUE, SUBMENU_ANIMATION_TIME, OPEN_STATE_WIDTH } from '../../
 import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
 import { calcNumberAvatarsToShow } from '../../utils/calc-number-avatars-to-show';
 import { changeCurrentCardIndex } from '../../store/slices/card-list-slice';
-import { openPopup } from '../../store/slices/popup-slice';
+import { openPopup, changePopupMode } from '../../store/slices/popup-slice';
 
 import './card-item.scss';
 
@@ -32,6 +32,7 @@ export const CardItem = ({ cardData: { country, users }, id }: CardItemProps) =>
           key: '3',
           icon: <div className="card_dropdown-item__icon delete"></div>,
           onClick: () => {
+            dispatch(changePopupMode('confirm'));
             dispatch(changeCurrentCardIndex(id));
             dispatch(openPopup());
           },

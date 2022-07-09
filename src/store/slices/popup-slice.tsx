@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const popupSlice = createSlice({
   name: 'submenu',
   initialState: {
     isOpen: false,
-  },
+    mode: 'create',
+  } as PopupSliceInitialState,
   reducers: {
     openPopup: (state) => {
       return {
@@ -18,8 +19,14 @@ export const popupSlice = createSlice({
         isOpen: false,
       };
     },
+    changePopupMode: (state, action: PayloadAction<PopupMode>) => {
+      return {
+        ...state,
+        mode: action.payload,
+      };
+    },
   },
 });
 
-export const { openPopup, closePopup } = popupSlice.actions;
+export const { openPopup, closePopup, changePopupMode } = popupSlice.actions;
 export default popupSlice.reducer;
