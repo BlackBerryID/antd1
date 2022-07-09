@@ -4,7 +4,7 @@
   .ant-modal-body {
     line-height: 150%;
     color: $BLACK_80_OPACITY;
-    padding: 24px 40px;
+    padding: 24px 40px 28px;
   }
 
   .ant-modal-content,
@@ -27,6 +27,10 @@
     background-color: $LIGHT_GREY_10_OPACITY;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  .ant-modal-footer {
+    border: none;
   }
 
   &_text {

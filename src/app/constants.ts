@@ -1,5 +1,6 @@
 export const MENU_ICON_BLUE = '#00a0ec';
 export const VIOLET = '#434eaa';
+export const RED = '#f24445';
 
 export const USERS_DATA: UsersData = [
   {
