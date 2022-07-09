@@ -41,9 +41,3 @@ export const confirmCancelButtonProps: ButtonProps = {
 export const confirmTitle = 'Delete Location';
 export const confirmWidth = 460;
 export const confirmOkText = 'Yes, Delete';
-
-export const confirmOnOk = () => {
-  const dispatch = useAppDispatch();
-  dispatch(deleteCard());
-  dispatch(closePopup());
-};

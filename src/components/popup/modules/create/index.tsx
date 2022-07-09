@@ -3,15 +3,19 @@ import { useState } from 'react';
 import { FloatInput } from '../float-input';
 import { FloatSelect } from '../float-select';
 import { USERS_DATA } from '../../../../app/constants';
+import { addCard } from '../../../../store/slices/card-list-slice';
 
 import './create.scss';
+import { useAppDispatch } from '../../../../hooks/store-hooks';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
   const [leaveQuotaResetBase, setLeaveQuotaResetBase] = useState('');
   const [users, setUsers] = useState('');
+  const dispatch = useAppDispatch();
 
-  const onFinish = (values: number) => {
+  const onFinish = (values: CreateLocationFormOutput) => {
+    dispatch(addCard(values));
     console.log(values);
   };
 

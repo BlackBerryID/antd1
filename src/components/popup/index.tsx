@@ -2,6 +2,7 @@ import Icon from '@ant-design/icons';
 import { Modal } from 'antd';
 import { useAppSelector, useAppDispatch } from '../../hooks/store-hooks';
 import { closeIcon } from '../../icons/close';
+import { deleteCard } from '../../store/slices/card-list-slice';
 import { closePopup } from '../../store/slices/popup-slice';
 import {
   Confirmation,
@@ -10,7 +11,6 @@ import {
   confirmTitle,
   confirmWidth,
   confirmOkText,
-  confirmOnOk,
 } from './modules/confirmation';
 import { Create, createTitle, createWidth, createOkButtonProps } from './modules/create';
 
@@ -53,7 +53,10 @@ export const Popup = () => {
       okButtonProps={okButtonProps}
       okText={confirmOkText}
       onCancel={() => dispatch(closePopup())}
-      onOk={() => confirmOnOk()}
+      onOk={() => {
+        dispatch(deleteCard());
+        dispatch(closePopup());
+      }}
     >
       {body}
     </Modal>

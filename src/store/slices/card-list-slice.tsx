@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USERS_DATA } from '../../app/constants';
 import { addRandomUsers } from '../../utils/add-random-users';
+import { addUsersToNewCard } from '../../utils/add-users-to-new-card';
 
 const initialState = {
   cardList: [
@@ -65,8 +66,19 @@ export const cardListSlice = createSlice({
         currentCardIndex: action.payload,
       };
     },
+    addCard: (state, action: PayloadAction<CreateLocationFormOutput>) => {
+      const tempCardList = state.cardList.slice();
+      tempCardList.push({
+        country: action.payload['location-name'] || 'Out of nowhere',
+        users: addUsersToNewCard(action.payload, USERS_DATA),
+      });
+      return {
+        ...state,
+        cardList: tempCardList,
+      };
+    },
   },
 });
 
-export const { deleteCard, changeCurrentCardIndex } = cardListSlice.actions;
+export const { deleteCard, changeCurrentCardIndex, addCard } = cardListSlice.actions;
 export default cardListSlice.reducer;

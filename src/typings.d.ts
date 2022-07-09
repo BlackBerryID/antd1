@@ -29,6 +29,13 @@ type CardItemProps = {
   id: number;
 };
 
+type CreateLocationFormOutput = {
+  'leave-quota-reset': string | undefined;
+  'location-name': string | undefined;
+  users: string[] | undefined;
+  workweek: string[] | undefined;
+};
+
 /* Popup */
 
 type PopupMode = 'create' | 'confirm';
