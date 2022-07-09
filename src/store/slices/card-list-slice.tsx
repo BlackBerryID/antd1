@@ -45,6 +45,7 @@ const initialState = {
     },
   ] as CardData[],
   currentCardIndex: 0,
+  defaultCountry: 'Australia',
 };
 
 export const cardListSlice = createSlice({

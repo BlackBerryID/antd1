@@ -10,6 +10,7 @@ import './card-item.scss';
 
 export const CardItem = ({ cardData: { country, users }, id }: CardItemProps) => {
   const { submenuWidth } = useAppSelector((state) => state.submenu);
+  const { defaultCountry } = useAppSelector((state) => state.cardList);
   const [isDropdownActive, setIsDropdownActive] = useState<boolean>(false);
   const [numberAvatarsToShow, setNumberAvatarsToShow] = useState<number>(3);
   const dispatch = useAppDispatch();
@@ -54,7 +55,7 @@ export const CardItem = ({ cardData: { country, users }, id }: CardItemProps) =>
   }, [submenuWidth]);
 
   return (
-    <Card className="card default">
+    <Card className={`card ${defaultCountry === country ? 'default' : ''}`}>
       <h2 className="card_title">{country}</h2>
       <Dropdown
         className={`card_dropdown ${isDropdownActive ? 'active' : ''}`}
