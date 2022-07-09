@@ -1,11 +1,13 @@
-import { Form, Checkbox } from 'antd';
+import { Form, Checkbox, Button } from 'antd';
 import { useState } from 'react';
 import { FloatInput } from '../float-input';
+import { FloatSelect } from '../float-select';
 
 import './create.scss';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
+  const [leaveQuotaResetBase, setLeaveQuotaResetBase] = useState('');
 
   const onFinish = (values: number) => {
     console.log(values);
@@ -20,6 +22,8 @@ export const Create = () => {
     'Friday',
     'Saturday',
   ];
+
+  const leaveQuotaOptions = ['Accounting Year', 'User Employment Date'];
 
   return (
     <Form onFinish={onFinish}>
@@ -38,6 +42,21 @@ export const Create = () => {
           <Checkbox.Group options={workweekOptions} />
         </Form.Item>
       </div>
+      <Form.Item name="leave-quota-reset">
+        <FloatSelect
+          customClassName="popup-input_leave-quota"
+          placeholder="Leave Quota Reset Based on"
+          label="Leave Quota Reset Based on"
+          value={leaveQuotaResetBase}
+          onChange={(e) => {
+            setLeaveQuotaResetBase(e);
+          }}
+          options={leaveQuotaOptions}
+        />
+      </Form.Item>
+      <Form.Item>
+        <Button htmlType="submit">Create</Button>
+      </Form.Item>
     </Form>
   );
 };
