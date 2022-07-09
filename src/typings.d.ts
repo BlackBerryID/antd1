@@ -34,6 +34,7 @@ type CreateLocationFormOutput = {
   'location-name': string | undefined;
   users: string[] | undefined;
   workweek: string[] | undefined;
+  'is-default': boolean;
 };
 
 /* Popup */

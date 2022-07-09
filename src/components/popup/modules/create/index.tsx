@@ -4,9 +4,10 @@ import { FloatInput } from '../float-input';
 import { FloatSelect } from '../float-select';
 import { USERS_DATA } from '../../../../app/constants';
 import { addCard } from '../../../../store/slices/card-list-slice';
+import { useAppDispatch } from '../../../../hooks/store-hooks';
+import { closePopup } from '../../../../store/slices/popup-slice';
 
 import './create.scss';
-import { useAppDispatch } from '../../../../hooks/store-hooks';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
@@ -16,7 +17,6 @@ export const Create = () => {
 
   const onFinish = (values: CreateLocationFormOutput) => {
     dispatch(addCard(values));
-    console.log(values);
   };
 
   const workweekOptions = [
@@ -75,8 +75,13 @@ export const Create = () => {
           mode="tags"
         />
       </Form.Item>
+      <Form.Item name="is-default" valuePropName="checked">
+        <Checkbox>Make This Location Default</Checkbox>
+      </Form.Item>
       <Form.Item>
-        <Button htmlType="submit">Create</Button>
+        <Button htmlType="submit" onClick={() => dispatch(closePopup())}>
+          Create
+        </Button>
       </Form.Item>
     </Form>
   );

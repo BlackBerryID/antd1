@@ -69,13 +69,15 @@ export const cardListSlice = createSlice({
     },
     addCard: (state, action: PayloadAction<CreateLocationFormOutput>) => {
       const tempCardList = state.cardList.slice();
+      const newCardCountry = action.payload['location-name'] || 'Out of nowhere';
       tempCardList.push({
-        country: action.payload['location-name'] || 'Out of nowhere',
+        country: newCardCountry,
         users: addUsersToNewCard(action.payload, USERS_DATA),
       });
       return {
         ...state,
         cardList: tempCardList,
+        defaultCountry: action.payload['is-default'] ? newCardCountry : state.defaultCountry,
       };
     },
   },
