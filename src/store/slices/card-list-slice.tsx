@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USERS_DATA } from '../../app/constants';
 import { addRandomUsers } from '../../utils/add-random-users';
 
@@ -43,13 +43,30 @@ const initialState = {
       users: [USERS_DATA[1], USERS_DATA[3]],
     },
   ] as CardData[],
+  currentCardIndex: 0,
 };
 
 export const cardListSlice = createSlice({
   name: 'submenu',
   initialState,
-  reducers: {},
+  reducers: {
+    deleteCard: (state) => {
+      const filteredCardList = state.cardList.filter(
+        (card, index) => index !== state.currentCardIndex
+      );
+      return {
+        ...state,
+        cardList: filteredCardList,
+      };
+    },
+    changeCurrentCardIndex: (state, action: PayloadAction<number>) => {
+      return {
+        ...state,
+        currentCardIndex: action.payload,
+      };
+    },
+  },
 });
 
-// export const {} = cardListSlice.actions;
+export const { deleteCard, changeCurrentCardIndex } = cardListSlice.actions;
 export default cardListSlice.reducer;

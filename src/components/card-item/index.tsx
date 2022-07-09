@@ -1,38 +1,45 @@
 import { Card, Button, Avatar, Dropdown, Menu } from 'antd';
 import { useEffect, useState } from 'react';
 import { MENU_ICON_BLUE, SUBMENU_ANIMATION_TIME, OPEN_STATE_WIDTH } from '../../app/constants';
-import { useAppSelector } from '../../hooks/store-hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
 import { calcNumberAvatarsToShow } from '../../utils/calc-number-avatars-to-show';
+import { changeCurrentCardIndex } from '../../store/slices/card-list-slice';
+import { openPopup } from '../../store/slices/popup-slice';
 
 import './card-item.scss';
 
-const menu = (
-  <Menu
-    items={[
-      {
-        label: <div className="card_dropdown-item__label">Edit</div>,
-        key: '1',
-        icon: <div className="card_dropdown-item__icon edit"></div>,
-      },
-      {
-        label: <div className="card_dropdown-item__label">Set&nbsp;as&nbsp;Default</div>,
-        key: '2',
-        icon: <div className="card_dropdown-item__icon star"></div>,
-      },
-      {
-        label: <div className="card_dropdown-item__label">Delete</div>,
-        key: '3',
-        icon: <div className="card_dropdown-item__icon delete"></div>,
-      },
-    ]}
-    style={{ padding: '8px 4px 3px', borderRadius: '6px' }}
-  />
-);
-
-export const CardItem = ({ cardData: { country, users } }: CardItemProps) => {
+export const CardItem = ({ cardData: { country, users }, id }: CardItemProps) => {
   const { submenuWidth } = useAppSelector((state) => state.submenu);
   const [isDropdownActive, setIsDropdownActive] = useState<boolean>(false);
   const [numberAvatarsToShow, setNumberAvatarsToShow] = useState<number>(3);
+  const dispatch = useAppDispatch();
+
+  const menu = (
+    <Menu
+      items={[
+        {
+          label: <div className="card_dropdown-item__label">Edit</div>,
+          key: '1',
+          icon: <div className="card_dropdown-item__icon edit"></div>,
+        },
+        {
+          label: <div className="card_dropdown-item__label">Set&nbsp;as&nbsp;Default</div>,
+          key: '2',
+          icon: <div className="card_dropdown-item__icon star"></div>,
+        },
+        {
+          label: <div className="card_dropdown-item__label">Delete</div>,
+          key: '3',
+          icon: <div className="card_dropdown-item__icon delete"></div>,
+          onClick: () => {
+            dispatch(changeCurrentCardIndex(id));
+            dispatch(openPopup());
+          },
+        },
+      ]}
+      style={{ padding: '8px 4px 3px', borderRadius: '6px' }}
+    />
+  );
 
   useEffect(() => {
     const isSubmenuOpen = submenuWidth === OPEN_STATE_WIDTH ? true : false;

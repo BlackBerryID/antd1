@@ -12,7 +12,7 @@ export const CardList = () => {
   cardList.forEach((card, index) => {
     cols.push(
       <Col key={index} span={8}>
-        <CardItem cardData={card} />
+        <CardItem cardData={card} id={index}/>
       </Col>
     );
   });

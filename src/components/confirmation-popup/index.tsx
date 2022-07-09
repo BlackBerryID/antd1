@@ -1,18 +1,22 @@
 import Icon from '@ant-design/icons';
 import { Modal } from 'antd';
-import { useAppSelector } from '../../hooks/store-hooks';
+import { useAppSelector, useAppDispatch } from '../../hooks/store-hooks';
 import { closeIcon } from '../../icons/close';
 import { RED } from '../../app/constants';
+import { closePopup } from '../../store/slices/popup-slice';
+import { deleteCard } from '../../store/slices/card-list-slice';
 
 import './confirmation-popup.scss';
 
 export const ConfirmationPopup = () => {
+  const { isOpen } = useAppSelector((state) => state.popup);
+  const dispatch = useAppDispatch();
+
   return (
     <Modal
       title="Delete Location"
       className="confirmation-popup "
-      visible={true}
-      // footer={null}
+      visible={isOpen}
       closeIcon={<Icon component={closeIcon} />}
       width={460}
       cancelButtonProps={{ style: { display: 'none' } }}
@@ -32,6 +36,11 @@ export const ConfirmationPopup = () => {
         },
       }}
       okText="Yes, Delete"
+      onCancel={() => dispatch(closePopup())}
+      onOk={() => {
+        dispatch(deleteCard());
+        dispatch(closePopup());
+      }}
     >
       <div className="confirmation-popup_title">Are you sure want to delete “USA” Location? </div>
       <div className="confirmation-popup_text">

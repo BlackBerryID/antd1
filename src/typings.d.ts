@@ -26,4 +26,5 @@ type CardData = {
 
 type CardItemProps = {
   cardData: CardData;
+  id: number;
 };
