@@ -13,11 +13,12 @@ type FloatSelectProps = {
   onChange: (e: string) => void;
   customClassName?: string;
   options: string[];
+  mode?: 'multiple' | 'tags';
 };
 
 export const FloatSelect = (props: FloatSelectProps) => {
   const [focus, setFocus] = useState(false);
-  const { label, value, required, customClassName, options } = props;
+  const { label, value, required, customClassName, options, mode } = props;
   let { placeholder } = props;
   const { Option } = Select;
 
@@ -35,13 +36,24 @@ export const FloatSelect = (props: FloatSelectProps) => {
       onBlur={() => setFocus(false)}
       onFocus={() => setFocus(true)}
     >
-      <Select onChange={(e) => props.onChange(e)} defaultValue={value}>
-        {options.map((option, index) => (
-          <Option value={option} key={index}>
-            {option}
-          </Option>
-        ))}
-      </Select>
+      {mode ? (
+        <Select onChange={(e) => props.onChange(e)} defaultValue={value} mode={mode}>
+          {options.map((option, index) => (
+            <Option value={option} key={index}>
+              {option}
+            </Option>
+          ))}
+        </Select>
+      ) : (
+        <Select onChange={(e) => props.onChange(e)} defaultValue={value}>
+          {options.map((option, index) => (
+            <Option value={option} key={index}>
+              {option}
+            </Option>
+          ))}
+        </Select>
+      )}
+
       <label className={labelClass}>
         {isOccupied ? label : placeholder} {requiredMark}
       </label>

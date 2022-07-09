@@ -12,7 +12,7 @@ import {
   confirmOkText,
   confirmOnOk,
 } from './modules/confirmation';
-import { Create, createTitle, createWidth } from './modules/create';
+import { Create, createTitle, createWidth, createOkButtonProps } from './modules/create';
 
 import './popup.scss';
 
@@ -20,17 +20,21 @@ export const Popup = () => {
   const { isOpen, mode } = useAppSelector((state) => state.popup);
   const dispatch = useAppDispatch();
 
-  let title, width;
+  let title, width, okButtonProps, body;
 
   switch (mode) {
     case 'confirm':
       title = confirmTitle;
       width = confirmWidth;
+      okButtonProps = confirmOkButtonProps;
+      body = <Confirmation />;
       break;
 
     case 'create':
       title = createTitle;
       width = createWidth;
+      okButtonProps = createOkButtonProps;
+      body = <Create />;
       break;
 
     default:
@@ -41,18 +45,17 @@ export const Popup = () => {
     <Modal
       className="confirmation-popup"
       title={title}
-      // visible={isOpen}
-      visible={true}
+      visible={isOpen}
+      // visible={true}
       closeIcon={<Icon component={closeIcon} />}
       width={width}
       cancelButtonProps={confirmCancelButtonProps}
-      okButtonProps={confirmOkButtonProps}
+      okButtonProps={okButtonProps}
       okText={confirmOkText}
       onCancel={() => dispatch(closePopup())}
       onOk={() => confirmOnOk()}
     >
-      {/* <Confirmation /> */}
-      <Create />
+      {body}
     </Modal>
   );
 };

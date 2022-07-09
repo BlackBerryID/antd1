@@ -1,13 +1,15 @@
-import { Form, Checkbox, Button } from 'antd';
+import { Form, Checkbox, Button, ButtonProps } from 'antd';
 import { useState } from 'react';
 import { FloatInput } from '../float-input';
 import { FloatSelect } from '../float-select';
+import { USERS_DATA } from '../../../../app/constants';
 
 import './create.scss';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
   const [leaveQuotaResetBase, setLeaveQuotaResetBase] = useState('');
+  const [users, setUsers] = useState('');
 
   const onFinish = (values: number) => {
     console.log(values);
@@ -24,6 +26,7 @@ export const Create = () => {
   ];
 
   const leaveQuotaOptions = ['Accounting Year', 'User Employment Date'];
+  const usersOptions = USERS_DATA.map((userData) => userData.name + ' ' + userData.surname);
 
   return (
     <Form onFinish={onFinish}>
@@ -34,6 +37,7 @@ export const Create = () => {
           label="Name"
           value={locationName}
           onChange={(e) => setLocationName(e.target.value)}
+          required
         />
       </Form.Item>
       <div className="popup-input_workweek">
@@ -54,6 +58,19 @@ export const Create = () => {
           options={leaveQuotaOptions}
         />
       </Form.Item>
+      <Form.Item name="users">
+        <FloatSelect
+          customClassName="popup-input_add-users"
+          placeholder="Add users"
+          label="Users"
+          value={users}
+          onChange={(e) => {
+            setUsers(e);
+          }}
+          options={usersOptions}
+          mode="tags"
+        />
+      </Form.Item>
       <Form.Item>
         <Button htmlType="submit">Create</Button>
       </Form.Item>
@@ -63,3 +80,8 @@ export const Create = () => {
 
 export const createTitle = 'Create Location';
 export const createWidth = 550;
+export const createOkButtonProps: ButtonProps = {
+  style: {
+    display: 'none',
+  },
+};
