@@ -19,10 +19,6 @@
     line-height: 120%;
   }
 
-  .ant-modal-close-icon:hover {
-    background-color: $GREY_HOVER;
-  }
-
   .ant-modal-header {
     background-color: $LIGHT_GREY_10_OPACITY;
     border-bottom-left-radius: 0;
@@ -31,21 +27,5 @@
 
   .ant-modal-footer {
     border: none;
-  }
-
-  &_text {
-    position: relative;
-    margin: 12px 0 0 28px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: -29px;
-      width: 17px;
-      height: 15px;
-      background-color: #f24445;
-      -webkit-mask-image: url(../../../public/assets/svg/warning.svg);
-      mask-image: url(../../../public/assets/svg/warning.svg);
-    }
   }
 }
