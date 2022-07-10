@@ -9,7 +9,6 @@ type InfoTooltipProps = {
 export const InfoTooltip = ({ title }: InfoTooltipProps) => {
   return (
     <Tooltip
-      className="popup-input_leave-quota__tooltip"
       placement="topLeft"
       title={title}
       overlayInnerStyle={{
@@ -21,7 +20,7 @@ export const InfoTooltip = ({ title }: InfoTooltipProps) => {
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.230695)',
       }}
     >
-      <Icon className="popup-input_leave-quota__icon" component={infoIcon} />
+      <Icon className="popup-input_tooltip-icon" component={infoIcon} />
     </Tooltip>
   );
 };

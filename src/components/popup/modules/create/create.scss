@@ -8,16 +8,15 @@
     width: 438px;
 
     &-wrapper {
-      .ant-form-item-control-input-content {
-        display: flex;
-      }
+      display: flex;
     }
+  }
 
-    &__icon {
-      align-self: center;
-      margin-left: 15px;
-      cursor: pointer;
-    }
+  &_tooltip-icon {
+    align-self: center;
+    margin-left: 15px;
+    margin-bottom: 23px;
+    cursor: pointer;
   }
 
   &_workweek {

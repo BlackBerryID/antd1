@@ -66,19 +66,21 @@ export const Create = () => {
           <Checkbox.Group options={workweekOptions} />
         </Form.Item>
       </div>
-      <Form.Item className="popup-input_leave-quota-wrapper" name="leave-quota-reset">
-        <FloatSelect
-          customClassName="popup-input_leave-quota"
-          placeholder="Leave Quota Reset Based on"
-          label="Leave Quota Reset Based on"
-          value={leaveQuotaResetBase}
-          onChange={(e) => {
-            setLeaveQuotaResetBase(e);
-          }}
-          options={leaveQuotaOptions}
-        />
+      <div className="popup-input_leave-quota-wrapper">
+        <Form.Item name="leave-quota-reset">
+          <FloatSelect
+            customClassName="popup-input_leave-quota"
+            placeholder="Leave Quota Reset Based on"
+            label="Leave Quota Reset Based on"
+            value={leaveQuotaResetBase}
+            onChange={(e) => {
+              setLeaveQuotaResetBase(e);
+            }}
+            options={leaveQuotaOptions}
+          />
+        </Form.Item>
         <InfoTooltip title="This setting will determine if your leave balance will be reset based on the accounting year (company's fiscal year) or based on the employee's start date. Besides quotas, your roll-over policy will also be affected according to this setting." />
-      </Form.Item>
+      </div>
       <Form.Item className="popup-input_fiscal-year-wrapper" name="fiscal-year">
         <FloatSelect
           customClassName="popup-input_fiscal-year__month"
