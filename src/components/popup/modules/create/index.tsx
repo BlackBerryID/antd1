@@ -1,11 +1,10 @@
-import { Form, Checkbox, Button, ButtonProps } from 'antd';
+import { Form, Checkbox, ButtonProps } from 'antd';
 import { useState } from 'react';
 import { FloatInput } from '../float-input';
 import { FloatSelect } from '../float-select';
-import { USERS_DATA } from '../../../../app/constants';
+import { USERS_DATA, BLUE_70_OPACITY, GREY } from '../../../../app/constants';
 import { addCard } from '../../../../store/slices/card-list-slice';
 import { useAppDispatch } from '../../../../hooks/store-hooks';
-import { closePopup } from '../../../../store/slices/popup-slice';
 import { InfoTooltip } from '../info-tooltip';
 
 import './create.scss';
@@ -67,7 +66,7 @@ export const Create = () => {
   };
 
   return (
-    <Form onFinish={onFinish}>
+    <Form onFinish={onFinish} id="popup-form">
       <Form.Item name="location-name">
         <FloatInput
           customClassName="popup-input_location-name"
@@ -192,20 +191,35 @@ export const Create = () => {
         to enable Users to request Leave. To assign a Leave Policy, go to Location {'>'} Leave
         Policies {'>'} Assign Leave Policy.
       </div>
-
-      <Form.Item>
-        <Button htmlType="submit" onClick={() => dispatch(closePopup())}>
-          Create
-        </Button>
-      </Form.Item>
     </Form>
   );
 };
 
 export const createTitle = 'Create Location';
 export const createWidth = 550;
+const buttonsStyle = {
+  fontSize: '13px',
+  fontWeight: '600',
+  lineHeight: '16px',
+  letterSpacing: '-0.1px',
+  width: '93px',
+  height: '40px',
+  borderRadius: '6px',
+  color: '#fff',
+  border: 'none',
+};
 export const createOkButtonProps: ButtonProps = {
+  htmlType: 'submit',
+  form: 'popup-form',
   style: {
-    display: 'none',
+    ...buttonsStyle,
+    backgroundColor: BLUE_70_OPACITY,
+  },
+};
+export const createOkText = 'Create';
+export const createCancelButtonProps: ButtonProps = {
+  style: {
+    ...buttonsStyle,
+    backgroundColor: GREY,
   },
 };

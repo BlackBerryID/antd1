@@ -1,6 +1,8 @@
 export const MENU_ICON_BLUE = '#00a0ec';
 export const VIOLET = '#434eaa';
 export const RED = '#f24445';
+export const BLUE_70_OPACITY = 'rgba(0, 160, 236, 0.7)';
+export const GREY = '#afb6c6';
 
 export const USERS_DATA: UsersData = [
   {
