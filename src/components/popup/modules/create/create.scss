@@ -1,4 +1,7 @@
+@import '../../../../app/app.scss';
+
 .popup-input {
+  color: $BLACK;
   &_location-name {
     margin-top: 8px;
   }
@@ -108,5 +111,24 @@
         margin-left: 17px;
       }
     }
+  }
+}
+
+.leave-policy {
+  font-size: 12px;
+  line-height: 16.8px;
+  width: 470px;
+  height: 67px;
+  padding: 8px 12px;
+  margin-top: -10px;
+  border: 1px solid $BLUE_40_OPCATITY !important;
+  border-radius: 6px;
+  background-color: $BLUE_10_OPACITY;
+  border: 1px solid;
+
+  & > span {
+    color: $BLUE;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }

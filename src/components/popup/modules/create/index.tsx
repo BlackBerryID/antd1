@@ -187,6 +187,12 @@ export const Create = () => {
         <InfoTooltip title="By making this Location the default one, all new team members will be automatically added to this Location." />
       </div>
 
+      <div className="leave-policy">
+        Once you've created a Location, assign a <span>Leave Policy</span> to the Location, in order
+        to enable Users to request Leave. To assign a Leave Policy, go to Location {'>'} Leave
+        Policies {'>'} Assign Leave Policy.
+      </div>
+
       <Form.Item>
         <Button htmlType="submit" onClick={() => dispatch(closePopup())}>
           Create
