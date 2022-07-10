@@ -46,6 +46,7 @@ export const Create = () => {
   const [users, setUsers] = useState('');
   const [month, setMonth] = useState('');
   const [date, setDate] = useState('');
+  const [weekStartDay, setWeekStartDay] = useState('');
   const dispatch = useAppDispatch();
 
   const onFinish = (values: CreateLocationFormOutput) => {
@@ -117,6 +118,19 @@ export const Create = () => {
         </Form.Item>
         <InfoTooltip title="Each year, the user's rolled over leaves will expire on the date you set. The quotas for each leave type are configured through the Leave Types section for this location and each can be set individually to allow or not allow roll overs." />
       </div>
+
+      <Form.Item name="week-starts-on">
+        <FloatSelect
+          customClassName="popup-input_week-starts-on"
+          placeholder="Week Starts on"
+          label="Week Starts on"
+          value={weekStartDay}
+          onChange={(e) => {
+            setWeekStartDay(e);
+          }}
+          options={['Sunday', 'Monday']}
+        />
+      </Form.Item>
 
       <Form.Item name="users">
         <FloatSelect
