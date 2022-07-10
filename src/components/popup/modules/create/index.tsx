@@ -111,6 +111,13 @@ export const Create = () => {
           />
         </Form.Item>
       </div>
+      <div className="popup-input_expiry-date__wrapper">
+        <Form.Item className="popup-input_expiry-date" name="expiry-date" valuePropName="checked">
+          <Checkbox>No Brought Forward Expiry Date</Checkbox>
+        </Form.Item>
+        <InfoTooltip title="Each year, the user's rolled over leaves will expire on the date you set. The quotas for each leave type are configured through the Leave Types section for this location and each can be set individually to allow or not allow roll overs." />
+      </div>
+
       <Form.Item name="users">
         <FloatSelect
           customClassName="popup-input_add-users"
@@ -124,9 +131,12 @@ export const Create = () => {
           mode="tags"
         />
       </Form.Item>
-      <Form.Item name="is-default" valuePropName="checked">
-        <Checkbox>Make This Location Default</Checkbox>
-      </Form.Item>
+      <div className="popup-input_is-default__wrapper">
+        <Form.Item className="popup-input_is-default" name="is-default" valuePropName="checked">
+          <Checkbox>Make This Location Default</Checkbox>
+        </Form.Item>
+        <InfoTooltip title="By making this Location the default one, all new team members will be automatically added to this Location." />
+      </div>
       <Form.Item>
         <Button htmlType="submit" onClick={() => dispatch(closePopup())}>
           Create

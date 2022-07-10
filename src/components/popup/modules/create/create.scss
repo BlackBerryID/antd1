@@ -40,6 +40,31 @@
     }
   }
 
+  &_is-default,
+  &_expiry-date {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+
+    &.ant-form-item {
+      margin-right: -15px;
+      margin-top: -7px;
+    }
+
+    span:last-child {
+      padding-left: 15px;
+      font-size: 13px;
+    }
+
+    &__wrapper {
+      display: flex;
+
+      .popup-input_tooltip-icon {
+        margin-top: -8px;
+      }
+    }
+  }
+
   &_workweek {
     display: flex;
 
