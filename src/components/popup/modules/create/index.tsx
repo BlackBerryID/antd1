@@ -36,12 +36,16 @@ const months = [
   'November',
   'December',
 ];
+const dates = Array(31)
+  .fill(' ')
+  .map((_, index) => String(index + 1));
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
   const [leaveQuotaResetBase, setLeaveQuotaResetBase] = useState('');
   const [users, setUsers] = useState('');
   const [month, setMonth] = useState('');
+  const [date, setDate] = useState('');
   const dispatch = useAppDispatch();
 
   const onFinish = (values: CreateLocationFormOutput) => {
@@ -81,18 +85,32 @@ export const Create = () => {
         </Form.Item>
         <InfoTooltip title="This setting will determine if your leave balance will be reset based on the accounting year (company's fiscal year) or based on the employee's start date. Besides quotas, your roll-over policy will also be affected according to this setting." />
       </div>
-      <Form.Item className="popup-input_fiscal-year-wrapper" name="fiscal-year">
-        <FloatSelect
-          customClassName="popup-input_fiscal-year__month"
-          placeholder="Fiscal Year Start"
-          label="Fiscal Year Start"
-          value={month}
-          onChange={(e) => {
-            setMonth(e);
-          }}
-          options={months}
-        />
-      </Form.Item>
+      <div className="popup-input_fiscal-year-wrapper">
+        <Form.Item name="fiscal-year-month">
+          <FloatSelect
+            customClassName="popup-input_fiscal-year__month"
+            placeholder="Month"
+            label="Fiscal Year Start"
+            value={month}
+            onChange={(e) => {
+              setMonth(e);
+            }}
+            options={months}
+          />
+        </Form.Item>
+        <Form.Item name="fiscal-year-date">
+          <FloatSelect
+            customClassName="popup-input_fiscal-year__date"
+            placeholder="Date"
+            label=""
+            value={date}
+            onChange={(e) => {
+              setDate(e);
+            }}
+            options={dates}
+          />
+        </Form.Item>
+      </div>
       <Form.Item name="users">
         <FloatSelect
           customClassName="popup-input_add-users"
