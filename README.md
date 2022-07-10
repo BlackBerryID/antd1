@@ -24,3 +24,10 @@ An application page where you can manage employee cards sorted by location.
 - `SASS` preprocessor (.scss syntax/ css-modules) was used for component stylisation.
 
 - `.eslint.json` and `.prettier` were used for maintenance code-quality and unified code-writing.
+
+## What can you do?
+
+- Toggle settings menu by clicking this button ![](./helpers/images/settings-button.png)
+- Delete the card using this button ![](./helpers/images/delete-button.png)
+- Create a new card using this button ![](./helpers/images/create-button.png)
+- Enjoy a high quality layout 😀
