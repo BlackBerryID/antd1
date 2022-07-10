@@ -1,10 +1,82 @@
+@import '../../../../app/app.scss';
+
 .popup-input {
+  color: $BLACK;
   &_location-name {
     margin-top: 8px;
   }
 
-  &_leave-quota {
+  &_leave-quota,
+  &_time-zone {
     margin-top: 4px;
+    width: 438px;
+
+    &-wrapper {
+      display: flex;
+    }
+  }
+
+  &_time-zone-wrapper {
+    margin-bottom: 5px;
+  }
+
+  &_tooltip-icon {
+    align-self: center;
+    margin-left: 15px;
+    margin-bottom: 23px;
+    cursor: pointer;
+  }
+
+  &_fiscal-year {
+    display: flex;
+
+    &-wrapper {
+      margin-top: 5px;
+
+      .ant-form-item {
+        display: inline-block;
+      }
+    }
+
+    &__month {
+      width: 125px;
+    }
+
+    &__date {
+      width: 80px;
+      margin-left: 17px;
+    }
+  }
+
+  &_is-default,
+  &_expiry-date {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+
+    &.ant-form-item {
+      margin-right: -15px;
+      margin-top: -7px;
+    }
+
+    span:last-child {
+      padding-left: 15px;
+      font-size: 13px;
+    }
+
+    &__wrapper {
+      display: flex;
+
+      .popup-input_tooltip-icon {
+        margin-top: -8px;
+      }
+    }
+  }
+
+  &_week-starts-on {
+    width: 145px;
+    margin-top: -4px;
+    margin-bottom: 2px;
   }
 
   &_workweek {
@@ -39,5 +111,24 @@
         margin-left: 17px;
       }
     }
+  }
+}
+
+.leave-policy {
+  font-size: 12px;
+  line-height: 16.8px;
+  width: 470px;
+  height: 67px;
+  padding: 8px 12px;
+  margin-top: -10px;
+  border: 1px solid $BLUE_40_OPCATITY !important;
+  border-radius: 6px;
+  background-color: $BLUE_10_OPACITY;
+  border: 1px solid;
+
+  & > span {
+    color: $BLUE;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }

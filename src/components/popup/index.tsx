@@ -12,7 +12,14 @@ import {
   confirmWidth,
   confirmOkText,
 } from './modules/confirmation';
-import { Create, createTitle, createWidth, createOkButtonProps } from './modules/create';
+import {
+  Create,
+  createTitle,
+  createWidth,
+  createOkButtonProps,
+  createOkText,
+  createCancelButtonProps,
+} from './modules/create';
 
 import './popup.scss';
 
@@ -20,21 +27,32 @@ export const Popup = () => {
   const { isOpen, mode } = useAppSelector((state) => state.popup);
   const dispatch = useAppDispatch();
 
-  let title, width, okButtonProps, body;
+  let title, width, okButtonProps, okText, body, onOk: () => void, cancelButtonProps;
 
   switch (mode) {
     case 'confirm':
       title = confirmTitle;
       width = confirmWidth;
       okButtonProps = confirmOkButtonProps;
+      okText = confirmOkText;
       body = <Confirmation />;
+      onOk = () => {
+        dispatch(deleteCard());
+        dispatch(closePopup());
+      };
+      cancelButtonProps = confirmCancelButtonProps;
       break;
 
     case 'create':
       title = createTitle;
       width = createWidth;
       okButtonProps = createOkButtonProps;
+      okText = createOkText;
       body = <Create />;
+      onOk = () => {
+        dispatch(closePopup());
+      };
+      cancelButtonProps = createCancelButtonProps;
       break;
 
     default:
@@ -46,17 +64,13 @@ export const Popup = () => {
       className="confirmation-popup"
       title={title}
       visible={isOpen}
-      // visible={true}
       closeIcon={<Icon component={closeIcon} />}
       width={width}
-      cancelButtonProps={confirmCancelButtonProps}
+      cancelButtonProps={cancelButtonProps}
       okButtonProps={okButtonProps}
-      okText={confirmOkText}
+      okText={okText}
       onCancel={() => dispatch(closePopup())}
-      onOk={() => {
-        dispatch(deleteCard());
-        dispatch(closePopup());
-      }}
+      onOk={() => onOk()}
     >
       {body}
     </Modal>

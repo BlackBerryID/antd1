@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Select } from 'antd';
+import Icon from '@ant-design/icons';
+import { topDownArrowsIcon } from '../../../../icons/top-down-arrows';
 
 import './float-select.scss';
 
@@ -45,7 +47,11 @@ export const FloatSelect = (props: FloatSelectProps) => {
           ))}
         </Select>
       ) : (
-        <Select onChange={(e) => props.onChange(e)} defaultValue={value}>
+        <Select
+          onChange={(e) => props.onChange(e)}
+          defaultValue={value}
+          suffixIcon={<Icon component={topDownArrowsIcon} />}
+        >
           {options.map((option, index) => (
             <Option value={option} key={index}>
               {option}
