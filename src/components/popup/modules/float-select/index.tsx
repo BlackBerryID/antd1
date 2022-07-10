@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Select } from 'antd';
 import Icon from '@ant-design/icons';
 import { topDownArrowsIcon } from '../../../../icons/top-down-arrows';
-import { infoIcon } from '../../../../icons/info';
 
 import './float-select.scss';
 

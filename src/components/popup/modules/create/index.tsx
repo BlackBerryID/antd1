@@ -1,4 +1,4 @@
-import { Form, Checkbox, Button, ButtonProps, Tooltip } from 'antd';
+import { Form, Checkbox, Button, ButtonProps } from 'antd';
 import { useState } from 'react';
 import { FloatInput } from '../float-input';
 import { FloatSelect } from '../float-select';
@@ -9,8 +9,6 @@ import { closePopup } from '../../../../store/slices/popup-slice';
 import { InfoTooltip } from '../info-tooltip';
 
 import './create.scss';
-import Icon from '@ant-design/icons';
-import { infoIcon } from '../../../../icons/info';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
