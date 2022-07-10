@@ -61,12 +61,15 @@ export const Create = () => {
   const [timeZone, setTimeZone] = useState('');
   const dispatch = useAppDispatch();
 
+  const [form] = Form.useForm();
+
   const onFinish = (values: CreateLocationFormOutput) => {
     dispatch(addCard(values));
+    form.resetFields();
   };
 
   return (
-    <Form onFinish={onFinish} id="popup-form">
+    <Form onFinish={onFinish} id="popup-form" form={form}>
       <Form.Item name="location-name">
         <FloatInput
           customClassName="popup-input_location-name"
@@ -197,6 +200,8 @@ export const Create = () => {
 
 export const createTitle = 'Create Location';
 export const createWidth = 550;
+export const createOkText = 'Create';
+
 const buttonsStyle = {
   fontSize: '13px',
   fontWeight: '600',
@@ -208,6 +213,7 @@ const buttonsStyle = {
   color: '#fff',
   border: 'none',
 };
+
 export const createOkButtonProps: ButtonProps = {
   htmlType: 'submit',
   form: 'popup-form',
@@ -216,7 +222,7 @@ export const createOkButtonProps: ButtonProps = {
     backgroundColor: BLUE_70_OPACITY,
   },
 };
-export const createOkText = 'Create';
+
 export const createCancelButtonProps: ButtonProps = {
   style: {
     ...buttonsStyle,
