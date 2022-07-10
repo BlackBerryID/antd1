@@ -5,6 +5,19 @@
 
   &_leave-quota {
     margin-top: 4px;
+    width: 438px;
+
+    &-wrapper {
+      .ant-form-item-control-input-content {
+        display: flex;
+      }
+    }
+
+    &__icon {
+      align-self: center;
+      margin-left: 15px;
+      cursor: pointer;
+    }
   }
 
   &_workweek {

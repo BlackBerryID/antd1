@@ -1,4 +1,4 @@
-import { Form, Checkbox, Button, ButtonProps } from 'antd';
+import { Form, Checkbox, Button, ButtonProps, Tooltip } from 'antd';
 import { useState } from 'react';
 import { FloatInput } from '../float-input';
 import { FloatSelect } from '../float-select';
@@ -6,8 +6,11 @@ import { USERS_DATA } from '../../../../app/constants';
 import { addCard } from '../../../../store/slices/card-list-slice';
 import { useAppDispatch } from '../../../../hooks/store-hooks';
 import { closePopup } from '../../../../store/slices/popup-slice';
+import { InfoTooltip } from '../info-tooltip';
 
 import './create.scss';
+import Icon from '@ant-design/icons';
+import { infoIcon } from '../../../../icons/info';
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
@@ -50,7 +53,7 @@ export const Create = () => {
           <Checkbox.Group options={workweekOptions} />
         </Form.Item>
       </div>
-      <Form.Item name="leave-quota-reset">
+      <Form.Item className="popup-input_leave-quota-wrapper" name="leave-quota-reset">
         <FloatSelect
           customClassName="popup-input_leave-quota"
           placeholder="Leave Quota Reset Based on"
@@ -61,6 +64,7 @@ export const Create = () => {
           }}
           options={leaveQuotaOptions}
         />
+        <InfoTooltip title="This setting will determine if your leave balance will be reset based on the accounting year (company's fiscal year) or based on the employee's start date. Besides quotas, your roll-over policy will also be affected according to this setting." />
       </Form.Item>
       <Form.Item name="users">
         <FloatSelect

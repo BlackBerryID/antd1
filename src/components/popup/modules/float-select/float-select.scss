@@ -21,6 +21,11 @@
   .ant-select-single .ant-select-selector .ant-select-selection-search {
     top: 16px;
   }
+
+  .ant-select-selection.ant-select-selection--single {
+    border-radius: 0px 8px 8px 0px;
+    height: 53px;
+  }
 }
 
 .label {
@@ -48,4 +53,15 @@
   background: white;
   padding: 0 4px;
   margin-left: -4px;
+}
+
+.ant-select-selector {
+  height: 40px !important;
+  background-color: transparent !important;
+  z-index: 1;
+}
+
+.ant-select-arrow {
+  margin-right: 5px;
+  z-index: 0;
 }
