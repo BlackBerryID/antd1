@@ -36,9 +36,21 @@ const months = [
   'November',
   'December',
 ];
+
 const dates = Array(31)
   .fill(' ')
   .map((_, index) => String(index + 1));
+
+const timeZones = [
+  '(GMT+02:00) Vilnius',
+  '(GMT+03:00) Khartoum',
+  '(GMT+03:00) Nairobi',
+  '(GMT+03:00) Syowa',
+  '(GMT+03:00) Baghdad',
+  '(GMT+03:00) Qatar',
+  '(GMT+03:00) Riyadh',
+  '(GMT+03:00) Minsk',
+];
 
 export const Create = () => {
   const [locationName, setLocationName] = useState('');
@@ -47,6 +59,7 @@ export const Create = () => {
   const [month, setMonth] = useState('');
   const [date, setDate] = useState('');
   const [weekStartDay, setWeekStartDay] = useState('');
+  const [timeZone, setTimeZone] = useState('');
   const dispatch = useAppDispatch();
 
   const onFinish = (values: CreateLocationFormOutput) => {
@@ -65,12 +78,14 @@ export const Create = () => {
           required
         />
       </Form.Item>
+
       <div className="popup-input_workweek">
         <div className="popup-input_workweek__title">Workweek</div>
         <Form.Item name="workweek">
           <Checkbox.Group options={workweekOptions} />
         </Form.Item>
       </div>
+
       <div className="popup-input_leave-quota-wrapper">
         <Form.Item name="leave-quota-reset">
           <FloatSelect
@@ -86,6 +101,7 @@ export const Create = () => {
         </Form.Item>
         <InfoTooltip title="This setting will determine if your leave balance will be reset based on the accounting year (company's fiscal year) or based on the employee's start date. Besides quotas, your roll-over policy will also be affected according to this setting." />
       </div>
+
       <div className="popup-input_fiscal-year-wrapper">
         <Form.Item name="fiscal-year-month">
           <FloatSelect
@@ -112,6 +128,7 @@ export const Create = () => {
           />
         </Form.Item>
       </div>
+
       <div className="popup-input_expiry-date__wrapper">
         <Form.Item className="popup-input_expiry-date" name="expiry-date" valuePropName="checked">
           <Checkbox>No Brought Forward Expiry Date</Checkbox>
@@ -132,6 +149,23 @@ export const Create = () => {
         />
       </Form.Item>
 
+      <div className="popup-input_time-zone-wrapper">
+        <Form.Item name="time-zone">
+          <FloatSelect
+            customClassName="popup-input_time-zone"
+            placeholder="Time Zone"
+            label="Time Zone"
+            value={timeZone}
+            onChange={(e) => {
+              setTimeZone(e);
+            }}
+            options={timeZones}
+            required
+          />
+        </Form.Item>
+        <InfoTooltip title="This default time zone is used throughout the system. For example for accurately displaying leave information in the calendar and for the system events listed in the Logs." />
+      </div>
+
       <Form.Item name="users">
         <FloatSelect
           customClassName="popup-input_add-users"
@@ -145,12 +179,14 @@ export const Create = () => {
           mode="tags"
         />
       </Form.Item>
+
       <div className="popup-input_is-default__wrapper">
         <Form.Item className="popup-input_is-default" name="is-default" valuePropName="checked">
           <Checkbox>Make This Location Default</Checkbox>
         </Form.Item>
         <InfoTooltip title="By making this Location the default one, all new team members will be automatically added to this Location." />
       </div>
+
       <Form.Item>
         <Button htmlType="submit" onClick={() => dispatch(closePopup())}>
           Create

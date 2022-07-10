@@ -3,13 +3,18 @@
     margin-top: 8px;
   }
 
-  &_leave-quota {
+  &_leave-quota,
+  &_time-zone {
     margin-top: 4px;
     width: 438px;
 
     &-wrapper {
       display: flex;
     }
+  }
+
+  &_time-zone-wrapper {
+    margin-bottom: 5px;
   }
 
   &_tooltip-icon {
@@ -68,6 +73,7 @@
   &_week-starts-on {
     width: 145px;
     margin-top: -4px;
+    margin-bottom: 2px;
   }
 
   &_workweek {
